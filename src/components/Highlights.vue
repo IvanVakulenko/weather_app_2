@@ -159,6 +159,7 @@ const getPressureMm = (hpa) => {
                 </div>
             </div>
             </div>
+            
         </div>
     </div>
 
@@ -290,6 +291,5 @@ const getPressureMm = (hpa) => {
     justify-content: center;
     align-items: center;
 }
-
 
 </style>

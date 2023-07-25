@@ -18,7 +18,7 @@ const searchError = ref(null);
 const showSearchResults = ref(false);
 
 function hideSearchResults() {
-  showSearchResults.value = false; 
+  showSearchResults.value = true; 
 }
 
 const getSearchResult = () => {
@@ -89,7 +89,8 @@ onMounted(getWeather);
                         v-for="searchResult in citySearchResult"
                         :key="searchResult.id"
                         class="search-result"
-                        @click="changeCity(searchResult.place_name); hideSearchResults()"
+                        @click="changeCity(searchResult.place_name); showSearchResults = false; "
+                        
                       >
                         {{ searchResult.place_name }}
                       </li>

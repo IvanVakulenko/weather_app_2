@@ -1,4 +1,7 @@
 <template>
+  <div class="hourly-forecast">
+    Hourly Forecast
+  </div>
   <div>
     <canvas ref="tempChartCanvas" id="temp-chart"></canvas>
   </div>
@@ -22,7 +25,7 @@ export default {
     let tempChart = null;
 
     const getTempData = () => {
-      const tempData = [25,10,15,20,30,35,40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90];
+      const tempData = [17,16,16,17,18,20,25,25,26,25,24,24,23,20,20,19,18];
       
       return tempData;
     };
@@ -42,9 +45,9 @@ export default {
           {
             label: 'Temperature',
             data: tempData,
-            fill: false,
+            fill: true,
             borderColor: '#00bfff',
-            tension: 0.1,
+            tension: 0.6,
           },
         ],
       };
@@ -52,6 +55,8 @@ export default {
       const options = {
 
         responsive: true,
+
+
         
         plugins: {
           legend: {
@@ -62,7 +67,7 @@ export default {
         scales: {
           x: {
             grid: {
-              display: false,
+              display: true,
             },
           },
           y: {
@@ -71,6 +76,8 @@ export default {
             },
           },
         },
+
+
 
         elements: {
           point: {
@@ -81,6 +88,35 @@ export default {
         layout: {
           padding: 10,
         },
+
+        maintainAspectRatio: false,
+
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+
+        animation: {
+          duration: 1000,
+        },
+
+        tooltips: {
+          enabled: true,
+          intersect: false,
+          mode: 'index',
+          backgroundColor: '#fff',
+          titleFontColor: '#000',
+          bodyFontColor: '#000',
+          borderColor: '#00bfff',
+          borderWidth: 1,
+          caretPadding: 10,
+          displayColors: false,
+          callbacks: {
+            label: (tooltipItem) => `${tooltipItem.value}°C`,
+          },
+        },
+
+
 
         
 
@@ -114,8 +150,21 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 #temp-chart {
   width: 100%;
   height: 100%;
 }
+
+.hourly-forecast {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
 </style>
