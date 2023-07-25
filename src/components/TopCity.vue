@@ -90,25 +90,36 @@ const cities = [
 
 @media (max-width: 768px) {
   .city-container {
-    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
   }
 
   .city-title {
     margin-bottom: 10px;
   }
+  .city-title {
+    width: 300px;
+  }
+
+  .city-title:last-child {
+    margin-bottom: 0;
+  }
+ 
 }
 
 @media (max-width: 480px) {
   .city-title {
-    font-size: 14px;
+    width: 250px;
   }
 }
 
 @media (max-width: 320px) {
   .city-title {
-    font-size: 12px;
+    width: 200px;
   }
 }
-
 
 </style>
